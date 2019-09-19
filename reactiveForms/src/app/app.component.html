@@ -1,0 +1,64 @@
+<div class="container">
+  <form [formGroup]="personForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" class="form-control" formControlName="firstName">
+    </div>
+
+    <div class="alert alert-danger" *ngIf="personForm.controls['firstName'].hasError('required')">
+      First Name can not be empty
+    </div>
+
+    <div class="alert alert-danger" *ngIf="personForm.controls['firstName'].hasError('minlength')">
+      Minimum three characters should be used for the first name
+    </div>
+
+    <div class="alert alert-danger" *ngIf="personForm.controls['firstName'].hasError('maxlength')">
+      Maximum ten characters should be used for the first name
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" class="form-control" formControlName="lastName">
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" formControlName="email">
+    </div>
+
+    <div class="form-group">
+      <label>Gender</label><br>
+      Male <br>
+      <input type="radio" class="form-control" value="Male" formControlName="gender">
+      Female <br>
+      <input type="radio" class="form-control" value="Female" formControlName="gender">
+    </div>
+
+    <div class="form-group" formGroupName="address">
+      <div class="form-group">
+        <label>Street</label>
+        <input type="text" class="form-control" formControlName="street">
+      </div>
+
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" class="form-control" formControlName="city">
+      </div>
+
+      <div class="form-group">
+        <label>Country</label>
+        <select class="form-control" formControlName="country">
+          <option *ngFor="let country of countries" value="{{country}}">{{country}}</option>
+        </select>
+      </div>
+
+      <div align="center">
+        <input type="submit" class="btn btn-success">
+      </div>
+
+
+    </div><!--Address Div-->
+  </form>
+</div><!--Form Div-->

@@ -1,0 +1,7 @@
+<h1>Create Product:</h1>
+Id: <input type="number" [(ngModel)]="createId" /> <br>
+Name: <input type="text" [(ngModel)]="createName"/> <br>
+Description: <input type="text" [(ngModel)]="description"/> <br>
+Price: <input type="number" [(ngModel)]="createPrice"/> <br>
+<button (click)="createProduct({'id':createId,'name':createName,'description':description,'price': createPrice})">Create</button>
+<h1>{{createResponse | json}}</h1>

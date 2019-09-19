@@ -1,0 +1,4 @@
+<h1>Fetch Product:</h1>
+Id: <input type="number" [(ngModel)]="fetchId" /> <br>
+<button (click)="getProduct(fetchId)">Get Product</button>
+<h1>{{getProductResponse | json}}</h1>
